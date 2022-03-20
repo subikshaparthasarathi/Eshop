@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class = "container">
+    <div class = "p-4 m-4">
+        <div class = "col-lg-5 mx-auto border rounded pt-4">
+            <h3 class = "alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">{% csrf_token %}
+                
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                  
+                </div>
+                {% endif %}
+                
+                
+                
+                <div class="form-group">
+                  <label for="">First name</label>
+                  <input type="text" 
+                  name="Firstname" id="" value="{{values.first_name}}"
+                  class="form-control" 
+                  placeholder="">
+                  
+                </div>
+                
+                <div class="form-group">
+                    <label for="">Last name</label>
+                    <input type="text" 
+                    name="Lastname" id="" value="{{values.last_name}}"
+                    class="form-control" 
+                    placeholder="">
+                    
+                </div>
+                  
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" 
+                    name="email" id=""  value="{{values.email}}"
+                    class="form-control" 
+                    placeholder="example@gmail.com">
+                    
+                </div>
+                  
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" id=""
+                    class="form-control" 
+                    placeholder="********">
+                    
+                </div>
+                  
+                <div class="form-group">
+                    <label for="">Phone number</label>
+                    <input type="text" 
+                    name="Phonenumber" id="" value="{{values.phone}}"
+                    class="form-control" 
+                    placeholder="7864532343">
+                    
+                </div>
+
+                <div class = "form-group">
+                      <input class = "btn btn-sm btn-info" type = "submit" value ="Create An Account">
+                </div>
+                
+            </form>
+            
+            </h3>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
